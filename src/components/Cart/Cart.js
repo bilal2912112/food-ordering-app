@@ -8,8 +8,12 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const totalAount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasIt = cartCtx.totalAmount.lenght > 0;
-  const cartItemRemoveHandler = (id) => {};
-  const cartItemAddHandler = (item) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem(item);
+  };
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.item.map((item) => (
